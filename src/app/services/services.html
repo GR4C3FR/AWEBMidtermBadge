@@ -1,0 +1,29 @@
+﻿<div class="services-container">
+  <h1>All Service Tickets</h1>
+  <p class="count-info">Showing {{ totalCount$ | async }} tickets</p>
+
+  <div class="search-box">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange($event)"
+      placeholder="Search tickets by title or description..."
+      class="search-input"
+    />
+  </div>
+
+  <div class="posts-grid">
+    <div *ngFor="let post of filteredPosts$ | async; let i = index" class="post-card">
+      <div class="post-header">
+        <span class="ticket-id">Ticket #{{ post.id }}</span>
+        <span class="user-badge">User {{ post.userId }}</span>
+      </div>
+      <h3>{{ post.title | slice:0:50 }}{{ post.title.length > 50 ? '...' : '' }}</h3>
+      <p>{{ post.body | truncate:120 }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="(filteredPosts$ | async)?.length === 0" class="no-results">
+    No tickets found matching your search.
+  </div>
+</div>

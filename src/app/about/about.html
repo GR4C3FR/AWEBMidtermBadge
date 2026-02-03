@@ -1,0 +1,35 @@
+<div class="about-container">
+  <h1>{{ 'About Us' | uppercase }}</h1>
+
+  <div class="info-section">
+    <p class="date-display">Portal Information as of: {{ currentDate | date:'medium' }}</p>
+
+    <div class="description">
+      <h3>What We Do</h3>
+      <p>
+        The Community Help Desk Portal is your one-stop solution for managing and tracking
+        service tickets and announcements. Our platform provides real-time access to service
+        offerings and helps you stay informed about the latest updates in your community.
+      </p>
+
+      <h3>Our Mission</h3>
+      <p>
+        To provide a seamless, efficient, and user-friendly platform for community members
+        to access service information, submit inquiries, and stay connected with the latest
+        announcements and updates.
+      </p>
+
+      <h3>Key Features</h3>
+      <ul class="features-list">
+        <li *ngFor="let feature of features">{{ feature }}</li>
+      </ul>
+
+      <h3>Get Started</h3>
+      <p>
+        Navigate through our portal using the menu above. Check out the <strong><a href="/services">Services</a></strong>
+        page to browse all available tickets, or visit <strong><a href="/home">Home</a></strong> to see the latest updates.
+        For any questions or concerns, please visit our <strong><a href="/contact">Contact</a></strong> page.
+      </p>
+    </div>
+  </div>
+</div>

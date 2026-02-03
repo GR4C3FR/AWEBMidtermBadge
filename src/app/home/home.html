@@ -1,0 +1,13 @@
+<div class="home-container">
+  <h1>Welcome to the Community Help Desk!</h1>
+  <h3 class="sub">Here are the latest 5 service tickets:</h3>
+  <p class="date-info">Last Updated: {{ currentDate | date:'medium' }}</p>
+
+  <div class="posts-container">
+    <div *ngFor="let post of latestPosts$ | async" class="post-card">
+      <h3>{{ post.title | uppercase }}</h3>
+      <p>{{ post.body | truncate:150 }}</p>
+      <small>Ticket ID: {{ post.id }} | User ID: {{ post.userId }}</small>
+    </div>
+  </div>
+</div>
